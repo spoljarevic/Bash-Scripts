@@ -1,0 +1,7 @@
+# Main Monitor AOC (middle) - Lofi Girl x Chess
+linux-wallpaperengine --silent --screen-root DP-2 3324167761 &
+sleep 1
+
+# Second Monitor (left) - Linux Terminal (Digital Ocean)
+linux-wallpaperengine --silent --screen-root DVI-D-1 2779991246 &
+sleep 1
