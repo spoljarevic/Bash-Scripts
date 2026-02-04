@@ -1,0 +1,4 @@
+echo "What do you want to write?"
+read ASCII
+
+figlet -c -t -f ansishadow "$ASCII"
