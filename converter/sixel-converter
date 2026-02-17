@@ -1,8 +1,5 @@
-# Go to assets folder where the image is
-cd /mnt/storage/git/spoljarevic/.config/fastfetch/assets
-
 # Declare Variables
-FILEPATH=/mnt/storage/git/spoljarevic/.config/fastfetch/assets
+FILEPATH=~/.config/fastfetch/assets
 
 # Gather information about the file name
 echo "What's the Name of the File (Without file type)?"
