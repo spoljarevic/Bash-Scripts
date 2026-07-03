@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+read -rp "Download new and changed files? (y/n): " download_answer
+read -rp "Upload new and changed files? (y/n): " upload_answer
+
+if [[ "$download_answer" == "y" ]]; then
+	proton-drive filesystem download -c replace /my-files/Spoljarevic/obsidian /home/ls/
+fi
+
+if [[ "$upload_answer" == "y" ]]; then
+	proton-drive filesystem upload -c merge /home/ls/obsidian/ /my-files/Spoljarevic/obsidian/
+fi
