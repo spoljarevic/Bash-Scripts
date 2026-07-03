@@ -9,5 +9,5 @@ if [[ "$download_answer" == "y" ]]; then
 fi
 
 if [[ "$upload_answer" == "y" ]]; then
-	proton-drive filesystem upload -c merge /home/ls/obsidian/ /my-files/Spoljarevic/obsidian/
+	proton-drive filesystem upload -c merge /home/ls/obsidian/* /my-files/Spoljarevic/obsidian/
 fi
