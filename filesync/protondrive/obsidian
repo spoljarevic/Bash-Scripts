@@ -5,9 +5,9 @@ read -rp "Download new and changed files? (y/n): " download_answer
 read -rp "Upload new and changed files? (y/n): " upload_answer
 
 if [[ "$download_answer" == "y" ]]; then
-	proton-drive filesystem download -c replace /my-files/spoljarevic/obsidian /home/ls/
+	proton-drive filesystem download -c replace /my-files/00_spoljarevic/obsidian /home/ls/
 fi
 
 if [[ "$upload_answer" == "y" ]]; then
-	proton-drive filesystem upload -c merge /home/ls/obsidian/* /my-files/spoljarevic/obsidian/
+	proton-drive filesystem upload -c merge /home/ls/obsidian/* /my-files/00_spoljarevic/obsidian/
 fi
