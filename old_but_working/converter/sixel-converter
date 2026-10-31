@@ -1,21 +1,22 @@
+#!/usr/bin/env bash
 # Declare Variables
 FILEPATH=~/.config/fastfetch/assets
 
 # Gather information about the file name
 echo "What's the Name of the File (Without file type)?"
-read FILE_NAME
+read -r FILE_NAME
 
 # Gather information about file type
 echo "What's the File Type?"
-read FILE_TYPE
+read -r FILE_TYPE
 
 # Gather information about the size
 echo "What's the Size (Width only)?"
-read FILE_WIDTH
+read -r FILE_WIDTH
 FILE_HEIGHT=$(echo "$FILE_WIDTH / 2" | bc -l | awk '{printf "%d", $1}')
 
 # Convert the image to sixel
-chafa -s "$FILE_WIDTH"x"$FILE_WIDTH" $FILEPATH/$FILE_NAME.$FILE_TYPE > $FILEPATH/$FILE_NAME.sixel
+chafa -s "$FILE_WIDTH"x"$FILE_WIDTH" "$FILEPATH/$FILE_NAME.$FILE_TYPE" > "$FILEPATH/$FILE_NAME.sixel"
 
 # Display fastfetch with the image
-fastfetch --raw $FILEPATH/$FILE_NAME.sixel --logo-width $FILE_HEIGHT --logo-height $FILE_HEIGHT --logo-padding-top 2 
+fastfetch --raw "$FILEPATH/$FILE_NAME.sixel" --logo-width "$FILE_HEIGHT" --logo-height "$FILE_HEIGHT" --logo-padding-top 2 

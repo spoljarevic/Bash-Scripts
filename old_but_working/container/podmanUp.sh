@@ -19,17 +19,17 @@ ROOT_DIRS=(
 echo "▶️ Starting rootless containers..."
 for dir in "${COMPOSE_DIRS[@]}"; do
     echo "  → $dir (rootless)"
-    pushd "$BASE/$dir" >/dev/null
+    pushd "$BASE/$dir" >/dev/null || exit 1
     podman compose up -d
-    popd >/dev/null
+    popd >/dev/null || exit 1
 done
 
 echo "▶️ Starting root containers..."
 for dir in "${ROOT_DIRS[@]}"; do
     echo "  → $dir (root)"
-    pushd "$BASE/$dir" >/dev/null
+    pushd "$BASE/$dir" >/dev/null || exit 1
     sudo podman compose up -d
-    popd >/dev/null
+    popd >/dev/null || exit 1
 done
 
 echo "✅ All stacks started."

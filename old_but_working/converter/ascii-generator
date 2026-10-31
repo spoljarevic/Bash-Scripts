@@ -1,4 +1,5 @@
+#!/usr/bin/env bash
 echo "What do you want to write?"
-read ASCII
+read -r ASCII
 
 figlet -c -t -f ansishadow "$ASCII"

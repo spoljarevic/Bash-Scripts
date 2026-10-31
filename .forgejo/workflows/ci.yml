@@ -1,0 +1,36 @@
+---
+name: Script CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: shellcheck + script tests
+    runs-on: codeberg-tiny
+    container:
+      image: docker.io/library/node:20-trixie
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Install shellcheck and bc
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq --no-install-recommends shellcheck bc >/dev/null
+          shellcheck --version | head -2
+
+      - name: shellcheck
+        run: |
+          mapfile -t scripts < <(git ls-files | while read -r f; do head -1 "$f" | grep -q '^#!.*\(bash\|sh\)' && echo "$f"; done)
+          printf '%s\n' "${scripts[@]}"
+          shellcheck "${scripts[@]}"
+
+      - name: Every script does what it should
+        if: success() || failure()
+        run: bash .forgejo/tests/test-scripts.sh

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Main Monitor AOC (middle) - Lofi Girl x Chess
 linux-wallpaperengine --silent --screen-root DP-2 3324167761 &
 sleep 1

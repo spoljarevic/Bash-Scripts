@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Extracts the os wallpapers from the /usr/share/backgrounds and puts them into a local folder under ~/Pictures/wallpaper/os/
 #
 # Creator of the script: Luca Matteo Spoljarevic
